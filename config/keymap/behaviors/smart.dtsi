@@ -1,0 +1,39 @@
+ZMK_AUTO_LAYER(auto_mouse,
+    continue-list = <
+        ESCAPE TAB DELETE
+        MOVE_UP MOVE_DOWN MOVE_LEFT MOVE_RIGHT SCRL_UP SCRL_DOWN SCRL_LEFT SCRL_RIGHT MB4 MB5 LCLK RCLK
+    >;
+    ignore-modifiers;
+)
+
+ZMK_AUTO_LAYER(auto_nav,
+    continue-list = <
+      LEFT DOWN UP RIGHT PG_DN PG_UP HOME END
+    >;
+    ignore-modifiers;
+)
+
+ZMK_TRI_STATE(ts_swapper,
+    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    ignored-key-positions = <LT3 LM5>;
+)
+
+ZMK_AUTO_LAYER(auto_numrow,
+    continue-list = <
+        PLUS MINUS STAR KP_DIVIDE EQUAL PERCENT LPAR RPAR HASH
+        BACKSPACE DELETE KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9
+    >;
+    ignore-numbers;
+    ignore-modifiers;
+)
+
+ZMK_AUTO_LAYER(auto_caps,
+    continue-list = <
+        UNDERSCORE MINUS
+        BACKSPACE DELETE
+        SQT GRAVE LBKT RBKT DOT COMMA 
+        LEFT DOWN UP RIGHT 
+        LSHFT RSHFT
+    >;
+    ignore-alphas;
+)

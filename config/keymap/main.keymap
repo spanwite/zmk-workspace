@@ -1,0 +1,32 @@
+#include <behaviors.dtsi>
+#include <behaviors/num_word.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/mouse.h>
+#include <zmk-helpers/helper.h>
+
+#include "customize.h"
+
+#include "aliases/settings.h"
+#include "aliases/helpers.h"
+#include "aliases/layers.h"
+#include "aliases/keys.h"
+
+#include "behaviors/settings.dtsi"
+#include "behaviors/alpha.dtsi"
+#include "behaviors/symbols.dtsi"
+#include "behaviors/smart.dtsi"
+#include "behaviors/function.dtsi"
+
+#include "core/layers/alpha.dtsi"
+#include "core/layers/numbers.dtsi"
+#include "core/layers/symbols.dtsi"
+#include "core/layers/games.dtsi"
+#include "core/layers/navigation.dtsi"
+#include "core/layers/function.dtsi"
+#include "core/layers/specific.dtsi"
+
+#include "core/combos/main.dtsi"
+#include "core/combos/games.dtsi"
+
+#include "core/leader/leader.dtsi"

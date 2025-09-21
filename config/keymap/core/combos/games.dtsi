@@ -1,0 +1,16 @@
+/* LEFT PIECE */
+/* horizontal combos */
+COMBO(dota2_extra_5,    LT1 LT2,      &kp F5,                GAME_DOTA2)
+COMBO(dota2_extra_4,    LT2 LT3,      &kp F4,                GAME_DOTA2)
+
+COMBO(game_g,           LM0 LM1,      &kp G,                 LAYERS_GAME)
+COMBO(game_extra_3,     LM3 LM4,      &kp F3,                LAYERS_GAME)
+
+COMBO(game_esc,         LB1 LB3,      &kp ESC,               LAYERS_GAME)
+COMBO(game_extra_1,     LB2 LB3,      &kp F1,                LAYERS_GAME)
+COMBO(game_extra_2,     LB1 LB2,      &kp F2,                LAYERS_GAME)
+
+/* to games combos */
+COMBO(game_default,    LT3 LT1,       &to GAME_DEFAULT,      LAYERS_ALL)
+COMBO_SLOW(game_dota2, LT1 LT2 LT3,   &to GAME_DOTA2,        LAYERS_ALL)
+COMBO_SLOW(game_mouse, RT1 RT3,       &to GAME_MOUSE,        LAYERS_ALL)

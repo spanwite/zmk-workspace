@@ -1,0 +1,30 @@
+/* Coding */
+HOLDTAP(ht_lgc_pipe,        &mc_lgc_or, &mc_pipe)
+MACRO_FAST(mc_lgc_or,       &kp SPACE X_PIPE X_PIPE &kp SPACE)
+
+HOLDTAP(ht_lgc_amps,        &mc_lgc_and, &mc_amps)
+MACRO_FAST(mc_lgc_and,      &kp SPACE X_AMPS X_AMPS &kp SPACE)
+
+/* Punctuation */
+MORPH_SINGLE(mm_spc_dot,    LSFT, &kp SPC, X_DOT)
+MACRO_FLAT(mc_spc_dot,      X_DOT &kp SPACE &sk LSHIFT)
+
+MACRO_FLAT(mc_spc_comma,    X_COMMA &kp SPACE)
+
+MACRO_FAST(mc_em_dash,      &kp SPC &kp MINUS &kp MINUS &kp SPC)
+HOLDTAP(ht_minus_dash,      &mc_em_dash, &mc_minus)
+
+/* Specific */
+MACRO_FAST(mc_email,        &kp E &kp X &kp A &kp M &kp P &kp L &kp E &kp AT_SIGN &kp M &kp A &kp I &kp L &kp DOT &kp R &kp U)
+HOLDTAP(ht_at_email,        &mc_email, &mc_at)
+
+MACRO_FLAT(mc_up_dir,       X_DOT X_DOT &kp SLASH)
+
+/* Common */
+MACRO_FLAT(mc_minus,        &kp MINUS)
+
+#if defined(SYMBOLS_CUSTOM_KEYBOARD_LAYOUT) || defined(SYMBOLS_CLASSICAL)
+	MACRO_FLAT(mc_amps,     X_PIPE)
+	MACRO_FLAT(mc_pipe,     X_AMPS)
+	MACRO_FLAT(mc_at,       X_AT)
+#endif

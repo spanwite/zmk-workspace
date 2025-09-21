@@ -1,0 +1,16 @@
+LAYERTAP(lt_to, &to)
+LAYERTAP(lt_sl, &sl)
+LAYERTAP(lt_sk, &sk)
+LAYERTAP(lt_rpt, &key_repeat)
+LAYERTAP(lt_ldr, &leader)
+LAYERTAP(lt_spc_dot, &mm_spc_dot)
+
+/* SMART */
+MORPH_SINGLE(mm_caps, LSFT, &auto_caps SHIFTED, &to SHIFTED)
+LAYERTAP(lt_numrow, &auto_numrow)
+LAYERTAP(lt_num_word, &num_word)
+LAYERTAP(lt_caps, &mm_caps)
+
+/*  HOMEROW MODS */
+MAKE_HML(hml, &kp, &kp)
+MAKE_HMR(hmr, &kp, &kp)

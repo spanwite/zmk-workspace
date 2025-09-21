@@ -1,0 +1,24 @@
+#ifdef OS_WINDOWS
+	#define WIN_WAIT_MS 500
+	#define Y_LNGTAP(KEY) &kp KEY X_CHNG_LNG &kp KEY
+
+	ZMK_MACRO(mc_sleep,
+		wait-ms = <WIN_WAIT_MS>;
+		tap-ms = <5>;
+		bindings = <&kp LG(X) Y_LNGTAP(U) Y_LNGTAP(S)>;
+	)
+	ZMK_MACRO(mc_shutdown,
+		wait-ms = <WIN_WAIT_MS>;
+		tap-ms = <5>;
+		bindings = <&kp LG(X) Y_LNGTAP(U) Y_LNGTAP(U)>;
+	)
+	ZMK_MACRO(mc_restart,
+		wait-ms = <WIN_WAIT_MS>;
+		tap-ms = <5>;
+		bindings = <&kp LG(X) Y_LNGTAP(U) Y_LNGTAP(R)>;
+	)
+
+	#define X_SLEEP    &mc_sleep
+	#define X_SHUTDOWN &mc_shutdown
+	#define X_RESTART  &mc_restart
+#endif

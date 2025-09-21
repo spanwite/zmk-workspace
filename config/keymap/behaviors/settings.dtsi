@@ -1,0 +1,48 @@
+/* MAIN */
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <TAPPING_TERM_FAST>;
+    quick-tap-ms = <QUICK_TAP_TERM_FAST>;
+};
+
+&lt {
+    tapping-term-ms = <TAPPING_TERM_FAST>;
+    quick-tap-ms = <QUICK_TAP_TERM_SLOW>;
+    flavor = "balanced";
+};
+
+&sl {
+    release-after-ms = <RELEASE_AFTER>;
+    quick-release;
+};
+
+&sk {
+    release-after-ms = <RELEASE_AFTER>;
+    quick-release;
+};
+
+&num_word {
+    continue-list = <
+        BACKSPACE DELETE
+        MINUS EQUAL HASH PERCENT STAR KP_DIVIDE PLUS
+        KP_N0 KP_N1 KP_N2 KP_N3 KP_N4 KP_N5 KP_N6 KP_N7 KP_N8 KP_N9
+    >;
+    ignore-modifiers;
+};
+
+
+/* MOUSE */
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 3000 // 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20  // 10
+
+&mmv {
+    acceleration-exponent = <1>;  // 1
+    time-to-max-speed-ms = <1250>; // 300
+    delay-ms = <0>;               // 0
+};
+
+&msc {
+    acceleration-exponent = <0>;  // 1
+    time-to-max-speed-ms = <100>; // 300
+    delay-ms = <0>;               // 0
+};

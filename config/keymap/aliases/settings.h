@@ -1,0 +1,19 @@
+/* BASIC */
+#define QUICK_TAP_TERM_SLOW  220
+#define QUICK_TAP_TERM_FAST  175
+
+#define TAPPING_TERM_SLOW    280
+#define TAPPING_TERM_MEDIUM  220
+#define TAPPING_TERM_FAST    175
+
+#define PRIOR_IDLE_TERM      150
+
+#define RELEASE_AFTER        1000
+
+/* COMBOS */
+#define COMBO_TERM_FAST 30
+#define COMBO_TERM      45
+#define COMBO_TERM_SLOW 60
+
+#define COMBO_IDLE_FAST 50
+#define COMBO_IDLE_SLOW 100

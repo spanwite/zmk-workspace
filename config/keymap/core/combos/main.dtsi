@@ -1,0 +1,37 @@
+/* LEFT PIECE */
+/* horizontal combos */
+COMBO(delete,           LT3 LT2,      &kp DEL,               LAYERS_ALL)
+COMBO_FAST(equal,       LT2 LT1,      &kp EQL,               LAYERS_ALL)
+
+COMBO(escape,           LM3 LM1,      &kp ESC,               LAYERS_ALL)
+COMBO(enter,            LM2 LM1,      &kp ENTER,             LAYERS_ALL)
+COMBO(bspc,             LM3 LM2,      &kp BSPC,              LAYERS_ALL)
+COMBO(save,             LM4 LM3,      &kp LC(S),             LAYERS_TOGGLE)
+
+COMBO(copy,             LB3 LB2,      &kp LC(C),             LAYERS_TOGGLE)
+COMBO(paste,            LB2 LB1,      &kp LC(V),             LAYERS_TOGGLE)
+COMBO(cut,              LB3 LB1,      &kp LC(X),             LAYERS_TOGGLE)
+COMBO(history,          LB3 LB2 LB1,  &kp LG(V),             LAYERS_TOGGLE)
+
+/* vertical combos */
+COMBO_SLOW(scrnsht,     LT3 LM3,      X_SNIP,                LAYERS_TOGGLE)
+
+/* diagonal combos */
+COMBO_FAST(ctrl_t,      LT2 LM1,      &kp LC(T),             LAYERS_TOGGLE)
+COMBO_FAST(ctrl_q,      LT2 LM3,      &kp LC(Q),             LAYERS_TOGGLE)
+
+COMBO(numpad,           LM2 LB1,      &num_word NUMPAD,      LAYERS_ALL)
+COMBO(undo,             LB3 LM1,      &kp LC(Z),             LAYERS_TOGGLE LAYERS_GAME)
+COMBO(redo,             LB1 LM3,      &kp LC(LS(Z)),         LAYERS_TOGGLE LAYERS_GAME)
+
+/* RIGHT PIECE */
+/* horizontal combos */
+COMBO(colon,            RT1 RT2,      X_COLON,               LAYERS_TOGGLE)
+COMBO(under,            RT2 RT3,      &kp UNDER,             LAYERS_TOGGLE)
+
+COMBO(minus_dash,       RM2 RM3,      &ht_minus_dash 0 0,    LAYERS_TOGGLE)
+COMBO(tab,              RM1 RM2,      &kp TAB,               LAYERS_ALL)
+COMBO(dqt,              RM1 RM3,      X_DQT,                 LAYERS_TOGGLE)
+
+COMBO(auto_mouse,       RB2 RB3,      &auto_mouse MOUSE,     LAYERS_TOGGLE)
+COMBO(auto_nav,         RB1 RB2,      &auto_nav NAV,         LAYERS_TOGGLE)
