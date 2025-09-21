@@ -1,100 +1,258 @@
+draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: false
+  key_w: 60
+  key_h: 58
+  combo_w: 26
+  combo_h: 22
+  footer_text: "spanwite/zmk-config"
+  n_columns: 1
+
+# Modifier symbols: ⌘ ⌥ ⌃ ⇧ ⇪
 parse_config:
   zmk_additional_includes:
     - "modules/zmk/helpers/include"
 
   zmk_preamble: |
-    #include <zmk-helpers/key-labels/34.h>
-    #define CONFIG_WIRELESS
+    #include <zmk-helpers/key-labels/42.h> |
+    #include "../config/custom-config.h"
 
   raw_binding_map:
     "&sys_reset": Reset
     "&bootloader": Boot
-    "&caps_word": Caps Word
 
-    "&bt BT_SEL 0": BT 1
-    "&bt BT_SEL 1": BT 2
-    "&bt BT_SEL 2": BT 3
-    "&bt BT_SEL 3": BT 4
+    "&bt BT_SEL 0": { t: $$mdi:bluetooth$$, s: 0 }
+    "&bt BT_SEL 1": { t: $$mdi:bluetooth$$, s: 1 }
+    "&bt BT_SEL 2": { t: $$mdi:bluetooth$$, s: 2 }
+    "&bt BT_SEL 3": { t: $$mdi:bluetooth$$, s: 3 }
+    "&bt BT_SEL 4": { t: $$mdi:bluetooth$$, s: 4 }
+    "&bt BT_CLR": { t: $$mdi:bluetooth-off$$ }
 
-    "&kp LC(INS)": Copy
-    "&kp LC(X)": Cut
-    "&kp LS(INS)": Paste
+    "&kp LC(C)": $$mdi:content-copy$$
+    "&kp LC(X)": $$mdi:content-cut$$
+    "&kp LC(V)": $$mdi:content-paste$$
+    "&kp LG(V)": { t: $$mdi:clipboard-text-clock$$, s: history }
+    "&kp LC(S)": $$mdi:content-save$$
+    "&kp LC(Z)": { t: $$mdi:undo$$, s: undo }
+    "&kp LC(LS(Z))": { t: $$mdi:redo$$, s: redo }
+    "&kp LC(T)": { t: ⌃t }
+    "&kp LC(Q)": { t: ⌃q }
 
-    "&kp LG(LC(LEFT))": Prev Desk
-    "&kp LG(LC(RIGHT))": Next Desk
-    "&kp LG(LC(LS(A)))": Pin App
-    "&kp LG(LC(LS(Q)))": Pin Win
+    "&kp LG(LC(LEFT))": { s: prev, h: desktop, t: $$mdi:dock-window$$ }
+    "&kp LG(LC(RIGHT))": { s: next, h: desktop, t: $$mdi:dock-window$$ }
+    "&kp LG(TAB)": { s: view, h: desktop, t: $$mdi:monitor-shimmer$$ }
 
-    "&swapper": Next Win
-    "&kp LS(TAB)": Prev Win
-    "&dot_spc": Sentence
-    "&num_dance": { "t": "Numword", "s": "Sticky Num" }
-    "&magic_shift": { "t": Magic, "h": "Shift" }
-    "&smart_mouse": Smart Mouse
+    "&ts_swapper": { t: $$mdi:table-arrow-right$$, s: "next", h: "tab" }
+    "&kp LA(TAB)": { t: $$mdi:table-arrow-right$$, s: "next", h: "tab" }
+    "&kp LS(TAB)": { t: $$mdi:table-arrow-left$$, s: "prev", h: "tab" }
+    "&kp LA(F4)": { t: $$mdi:window-close$$, s: "close", h: "window" }
 
-    "&hml LS(LALT)TAB": Tab
-    "&hm_combo_ldr": Leader
-    "&hm_combo_ldrsh": Shift+Leader
-    "&hm_combo_lpar": { "t": "(", "right": "<" }
-    "&hm_combo_rpar": { "t": ")", "right": ">" }
-    "&kp LBKT": { "t": "[", "right": "{" }
-    "&kp RBKT": { "t": "]", "right": "}" }
+    "&mmv MOVE_UP": { t: $$mdi:arrow-up-circle$$, s: "move" }
+    "&mmv MOVE_DOWN": { t: $$mdi:arrow-down-circle$$, s: "move" }
+    "&mmv MOVE_LEFT": { t: $$mdi:arrow-left-circle$$, s: "move" }
+    "&mmv MOVE_RIGHT": { t: $$mdi:arrow-right-circle$$, s: "move" }
 
-    "&mmv MOVE_UP": Mouse ↑
-    "&mmv MOVE_DOWN": Mouse ↓
-    "&mmv MOVE_LEFT": Mouse ←
-    "&mmv MOVE_RIGHT": Mouse →
+    "&msc SCRL_UP": { t: $$mdi:arrow-up-circle-outline$$, s: "scroll" }
+    "&msc SCRL_DOWN": { t: $$mdi:arrow-down-circle-outline$$, s: "scroll" }
+    "&msc SCRL_LEFT": { t: $$mdi:arrow-left-circle-outline$$, s: "scroll" }
+    "&msc SCRL_RIGHT": { t: $$mdi:arrow-right-circle-outline$$, s: "scroll" }
 
-    "&msc SCRL_UP": Scroll ↑
-    "&msc SCRL_DOWN": Scroll ↓
-    "&msc SCRL_LEFT": Scroll ←
-    "&msc SCRL_RIGHT": Scroll →
+    "&mkp LCLK": { t: $$mdi:mouse-left-click$$, s: "left" }
+    "&mkp RCLK": { t: $$mdi:mouse-right-click$$, s: "right" }
+    "&mkp MCLK": { t: $$mdi:mouse-scroll-wheel$$, s: "middle" }
+    "&mkp MB4": { t: $$mdi:arrow-left-bold-box-outline$$, s: "backward" }
+    "&mkp MB5": { t: $$mdi:arrow-right-bold-box-outline$$, s: "forward" }
 
-    "&mkp LCLK": Left Click
-    "&mkp RCLK": Right Click
-    "&mkp MCLK": Middle Click
-    "&mkp MB4": Back Click
-    "&mkp MB5": Forward Click
+    "&kp LC(LSHFT)":
+      { t: $$material:keyboard_external_input$$, s: switch, h: input }
+
+    "&key_repeat": { t: $$mdi:repeat$$, s: repeat }
+    "&auto_numrow": { t: numRow, s: auto-layer }
+    "&leader": { t: $$mdi:crown$$, s: leader-key }
+    "&mm_caps": { t: shifted, s: auto-layer }
+
+    "&to ALPHA": { t: alpha, h: "to" }
+    "&to GAME_DEFAULT": { t: game, h: to }
+    "&to GAME_DOTA2": { t: dota2, h: to }
+
+    "X_SHUTDOWN": { t: $$mdi:power$$, s: shutdown }
+    "&mc_restart": { t: $$mdi:restart$$, s: restart }
+    "X_SLEEP": { t: $$mdi:power-sleep$$, s: sleep }
+    "X_LOCK": { t: $$mdi:lock$$, s: lock }
+
+    "&kp LC(EQUAL)": { t: $$mdi:magnify-plus$$, s: in, h: zoom }
+    "&kp LC(MINUS)": { t: $$mdi:magnify-minus$$, s: out, h: zoom }
+    "&kp LC(N0)": { t: $$mdi:loupe$$, s: reset, h: zoom }
+
+    "X_GIF": { t: $$mdi:file-gif-box$$, s: gif }
+    "X_OVERLAY": { t: $$mdi:selection$$, s: overlay }
+    "X_SCRNSHT": { t: $$mdi:monitor-screenshot$$, s: screenshot }
+    "X_RECORD": { t: $$mdi:record-rec$$, s: record }
+    "X_REPLAY": { t: $$mdi:replay$$, s: replay }
+    "X_SNIP": { t: $$mdi:monitor-screenshot$$ }
+
+    "&ht_minus_dash 0 0": { t: "-", h: "—" }
+
+    "&auto_nav": { t: "nav", s: "auto-layer" }
+    "&auto_mouse": { t: "mouse", s: "auto-layer" }
+    "&num_word": { t: "numpad", s: "auto-layer" }
+
+    "&mc_spc_comma": ",␣"
+    "&mc_spc_dot": ".␣⇧"
+
+    "X_COMMA": ","
+    "X_COLON": ":"
+    "X_AT": "@"
+    "X_PIPE": "|"
+    "X_AMPS": "&"
+    "X_LESS": "<"
+    "X_GRT": ">"
+    "X_QST": "?"
+    "X_LBKT": "["
+    "X_RBKT": "]"
+    "X_SEMI": ";"
+    "X_RBRC": "}"
+    "X_LBRC": "{"
+    "X_TILDE": "~"
+    "X_DQT": '"'
+    "X_DOT": "."
+    "X_DLLR": "$"
+    "X_CARET": "^"
+    "X_SQT": "'"
+    "&mc_up_dir": "../"
+    "&mc_email": "email"
+    "&mc_pipe": "|"
+    "&mc_amps": "&"
+    "&mc_at": "@"
+
+    "&kp LC(HOME)": { t: "text" }
+    "&kp LC(END)": { t: "text" }
+
+    "&kp Q": q
+    "&kp W": w
+    "&kp E": e
+    "&kp R": r
+    "&kp T": t
+    "&kp Y": y
+    "&kp U": u
+    "&kp I": i
+    "&kp O": o
+    "&kp P": p
+    "&kp A": a
+    "&kp S": s
+    "&kp D": d
+    "&kp F": f
+    "&kp G": g
+    "&kp H": h
+    "&kp J": j
+    "&kp K": k
+    "&kp L": l
+    "&kp Z": z
+    "&kp X": x
+    "&kp C": c
+    "&kp V": v
+    "&kp B": b
+    "&kp N": n
+    "&kp M": m
+
+    "&kp LS(Q)": Q
+    "&kp LS(W)": W
+    "&kp LS(E)": E
+    "&kp LS(R)": R
+    "&kp LS(T)": T
+    "&kp LS(Y)": Y
+    "&kp LS(U)": U
+    "&kp LS(I)": I
+    "&kp LS(O)": O
+    "&kp LS(P)": P
+    "&kp LS(A)": A
+    "&kp LS(S)": S
+    "&kp LS(D)": D
+    "&kp LS(F)": F
+    "&kp LS(G)": G
+    "&kp LS(H)": H
+    "&kp LS(J)": J
+    "&kp LS(K)": K
+    "&kp LS(L)": L
+    "&kp LS(Z)": Z
+    "&kp LS(X)": X
+    "&kp LS(C)": C
+    "&kp LS(V)": V
+    "&kp LS(B)": B
+    "&kp LS(N)": N
+    "&kp LS(M)": M
+    "&kp LS(COMMA)": "<"
+    "&kp LS(DOT)": ">"
+    "&kp LS(SEMI)": ":"
+    "&kp LS(LBKT)": "{"
+    "&kp LS(RBKT)": "}"
+    "&kp LS(SQT)": '"'
+    "&kp LS(GRAVE)": "~"
+
+    "Y_MEH(A)": meh a
+    "Y_MEH(B)": meh b
+    "Y_MEH(C)": meh c
+    "Y_MEH(E)": meh e
+    "Y_MEH(D)": meh d
+    "Y_MEH(F)": meh f
+    "Y_MEH(G)": meh g
+    "Y_MEH(H)": meh h
+    "Y_MEH(I)": meh i
+    "Y_MEH(J)": meh j
+    "Y_MEH(K)": meh k
+    "Y_MEH(L)": meh l
+    "Y_MEH(M)": meh m
+    "Y_MEH(N)": meh n
+    "Y_MEH(O)": meh o
+    "Y_MEH(P)": meh p
+    "Y_MEH(Q)": meh q
+    "Y_MEH(R)": meh r
+    "Y_MEH(S)": meh s
+    "Y_MEH(T)": meh t
+    "Y_MEH(U)": meh u
+    "Y_MEH(V)": meh v
+    "Y_MEH(W)": meh w
+    "Y_MEH(X)": meh x
+    "Y_MEH(Y)": meh y
+    "Y_MEH(Z)": meh z
+    "Y_MEH(COMMA)": "meh <"
+    "Y_MEH(DOT)": "meh >"
+    "Y_MEH(SEMI)": "meh :"
+    "Y_MEH(LBKT)": "meh ["
+    "Y_MEH(RBKT)": "meh ]"
+    "Y_MEH(SQT)": 'meh "'
+    "Y_MEH(GRAVE)": "meh ~"
+    "Y_MEH(SLASH)": "meh /"
 
   trans_legend: { "t": "", "type": "trans" }
 
-  zmk_combos:
-    combo_cut: { align: bottom, o: 0.15 }
-    combo_ldrsh: { align: top, o: 1.35 }
-
-    combo_lt: { hidden: true }
-    combo_gt: { hidden: true }
-    combo_lbrc: { hidden: true }
-    combo_rbrc: { hidden: true }
-
   zmk_keycode_map:
-    # custom mappings
-    LALT: Alt
-    RALT: Alt
-    LCTRL: Ctrl
-    RCTRL: Ctrl
-    LGUI: Gui
-    RGUI: Gui
-    LSHFT: Shift
-    RSHFT: Shift
+    LALT: $$mdi:apple-keyboard-option$$
+    RALT: $$mdi:apple-keyboard-option$$
+    LCTRL: $$mdi:apple-keyboard-control$$
+    RCTRL: $$mdi:apple-keyboard-control$$
+    LGUI: $$mdi:apple-keyboard-command$$
+    RGUI: $$mdi:apple-keyboard-command$$
+    LSHFT: $$mdi:apple-keyboard-shift$$
+    RSHFT: $$mdi:apple-keyboard-shift$$
 
-    BSPC: Bspc
-    DEL: Del
-    ESC: Esc
-    RET: Enter
-    SPACE: Spc
-    TAB: Tab
+    DEL: $$mdi:backspace-reverse-outline$$
+    BSPC: $$mdi:backspace-outline$$
+    ESC: $$mdi:keyboard-esc$$
+    ENTER: $$mdi:keyboard-return$$
+    SPACE: $$mdi:keyboard-space$$
+    TAB: $$mdi:keyboard-tab$$
 
-    PG_UP: PgUp
-    PG_DN: PgDn
-    INS: Ins
-    HOME: Home
-    END: End
+    PG_UP: { t: $$mdi:transfer-down$$, s: "page" }
+    PG_DN: { t: $$mdi:transfer-up$$, s: "page" }
+    INS: { t: $$material:edit_arrow_down$$, s: "insert" }
+    HOME: { t: $$mdi:arrow-collapse-left$$, s: "line" }
+    END: { t: $$mdi:arrow-collapse-right$$, s: "line" }
 
-    UP: ↑
-    DOWN: ↓
-    LEFT: ←
-    RIGHT: →
+    UP: $$mdi:arrow-up$$
+    DOWN: $$mdi:arrow-down$$
+    LEFT: $$mdi:arrow-left$$
+    RIGHT: $$mdi:arrow-right$$
 
     C_MUTE: $$mdi:volume-off$$
     C_PP: $$mdi:play-pause$$
@@ -103,7 +261,6 @@ parse_config:
     C_NEXT: $$mdi:skip-forward$$
     C_PREV: $$mdi:skip-backward$$
 
-    # defaults
     AMPERSAND: "&"
     AMPS: "&"
     APOS: "'"
@@ -123,9 +280,11 @@ parse_config:
     DOUBLE_QUOTES: '"'
     DQT: '"'
     EQUAL: "="
+    EQL: "="
     EXCL: "!"
     EXCLAMATION: "!"
     FSLH: /
+    KP_DIVIDE: /
     GRAVE: "`"
     GREATER_THAN: ">"
     GT: ">"
@@ -169,7 +328,56 @@ parse_config:
     UNDER: _
     UNDERSCORE: _
 
-draw_config:
-  append_colon_to_layer_header: false
-  dark_mode: auto
-  footer_text: "urob/zmk-config"
+  zmk_combos:
+    combo_delete: { layers: [alpha] }
+    combo_equal: { layers: [alpha] }
+    combo_escape:
+      {
+        layers: [alpha],
+        align: bottom,
+        o: -0.02,
+        h: 18,
+        w: 28,
+        arc_scale: 0.85,
+      }
+    combo_enter: { layers: [alpha] }
+    combo_bspc: { layers: [alpha] }
+    combo_save: { layers: [alpha] }
+    combo_copy: { layers: [alpha] }
+    combo_paste: { layers: [alpha] }
+    combo_cut: { layers: [alpha], align: bottom, o: 0.02, slide: -0.25 }
+    combo_history: { layers: [alpha], draw_separate: true }
+    combo_scrnsht: { layers: [alpha] }
+    combo_ctrl_t: { layers: [alpha], draw_separate: true }
+    combo_ctrl_q: { layers: [alpha], draw_separate: true }
+    combo_numpad: { layers: [alpha], draw_separate: true }
+    combo_undo: { layers: [alpha], draw_separate: true }
+    combo_redo: { layers: [alpha], draw_separate: true }
+    combo_colon: { layers: [alpha] }
+    combo_under: { layers: [alpha] }
+    combo_minus_dash: { layers: [alpha] }
+    combo_tab: { layers: [alpha] }
+    combo_dqt:
+      {
+        layers: [alpha],
+        align: bottom,
+        o: -0.02,
+        h: 18,
+        w: 24,
+        arc_scale: 0.85,
+      }
+    combo_auto_mouse: { layers: [alpha], w: 40, h: 24 }
+    combo_auto_nav: { layers: [alpha], w: 40, h: 24 }
+    combo_spc_comma: { draw_separate: true }
+    combo_spc_dot: { draw_separate: true }
+
+    combo_dota2_extra_5: { layers: [game] }
+    combo_dota2_extra_4: { layers: [game] }
+    combo_game_g: { layers: [game] }
+    combo_game_extra_3: { layers: [game] }
+    combo_game_esc: { layers: [game], align: bottom, o: 0.02, slide: -0.25 }
+    combo_game_extra_1: { layers: [game] }
+    combo_game_extra_2: { layers: [game] }
+    combo_game_default: { layers: [game], draw_separate: true }
+    combo_game_dota2: { layers: [alpha], draw_separate: true }
+    combo_game_mouse: { layers: [alpha], draw_separate: true }

@@ -1,10 +1,12 @@
-default:
-    @just --list --unsorted
-
 config := absolute_path('config')
 build := absolute_path('.build')
-out := absolute_path('firmware')
+firmware := absolute_path('firmware')
 draw := absolute_path('draw')
+
+set positional-arguments
+
+default:
+    @just --list --unsorted
 
 # parse build.yaml and filter targets by expression
 _parse_targets $expr:
@@ -25,9 +27,9 @@ _build_single $board $shield $snippet $artifact *west_args:
         -DZMK_CONFIG="{{ config }}" ${shield:+-DSHIELD="$shield"}
 
     if [[ -f "$build_dir/zephyr/zmk.uf2" ]]; then
-        mkdir -p "{{ out }}" && cp "$build_dir/zephyr/zmk.uf2" "{{ out }}/$artifact.uf2"
+        mkdir -p "{{ firmware }}" && cp "$build_dir/zephyr/zmk.uf2" "{{ firmware }}/$artifact.uf2"
     else
-        mkdir -p "{{ out }}" && cp "$build_dir/zephyr/zmk.bin" "{{ out }}/$artifact.bin"
+        mkdir -p "{{ firmware }}" && cp "$build_dir/zephyr/zmk.bin" "{{ firmware }}/$artifact.bin"
     fi
 
 # build firmware for matching targets
@@ -43,7 +45,7 @@ build expr *west_args:
 
 # clear build cache and artifacts
 clean:
-    rm -rf {{ build }} {{ out }}
+    rm -rf {{ build }} {{ firmware }}
 
 # clear all automatically generated files
 clean-all: clean
@@ -53,13 +55,50 @@ clean-all: clean
 clean-nix:
     nix-collect-garbage --delete-old
 
-# parse & plot keymap
+# draw specified keymap with necessary layers and styles
+# just _draw_single <input_file> <image_name> [--two-columns] [<layer1 layer2 ...>]
+_draw_single $input_file $image_name *args='':
+	#!/usr/bin/env bash
+	set -euo pipefail
+	temp_dir="{{ draw }}/temp"
+	config="$temp_dir/config.yaml"
+
+	if [ "$3" == "--two-columns" ]; then
+		yq -Yi '.draw_config.n_columns = 2' $config
+		shift 1
+	else
+		yq -Yi '.draw_config.n_columns = 1' $config
+	fi
+
+	mkdir -p "{{ draw }}/svg" "{{ draw }}/png"
+	keymap -c $config draw "$temp_dir/$input_file" -z "corne" ${3:+-s $3}>"{{ draw }}/svg/$image_name.svg"
+	inkscape --export-type png --export-dpi 300 --export-background=white --export-filename "{{ draw }}/png/$image_name.png" "{{ draw }}/svg/$image_name.svg"
+
+# parse and draw the config with all the layers and combos
+draw_default:
+	#!/usr/bin/env bash
+	set -euo pipefail
+	keymap -c "{{ draw }}/config.yaml" parse -z "config/keymap/main.keymap" >"{{ draw }}/temp/keymap.yaml"
+	just _draw_single "keymap.yaml" "all" --two-columns
+
+# parse and draw various parts of the config
 draw:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/base.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
-    yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/base.svg"
+	#!/usr/bin/env bash
+	set -euo pipefail
+	config="{{ draw }}/config.yaml"
+	temp_dir="{{ draw }}/temp"
+
+	mkdir -p $temp_dir
+	keymap -c $config parse -z "config/keymap/main.keymap" >"$temp_dir/keymap.yaml"
+	cp "$temp_dir/keymap.yaml" "$temp_dir/keymap.no-separate-combos.yaml"
+	cp $config "$temp_dir/config.yaml"
+	yq -Yi '.combos |= map(select(.draw_separate != true))' "$temp_dir/keymap.no-separate-combos.yaml"
+
+	just _draw_single "keymap.yaml" "all" --two-columns
+	just _draw_single "keymap.no-separate-combos.yaml" "preview" "alpha numRow sym nav"
+	just _draw_single "keymap.no-separate-combos.yaml" "main" --two-columns "alpha shifted numRow numpad sym nav mouse fn media"
+	just _draw_single "keymap.no-separate-combos.yaml" "game" --two-columns "game dota2 gameExtra gameNumpad gameMouse"
+	just _draw_single "keymap.no-separate-combos.yaml" "specific" "mehs lock unlock"
 
 # initialize west
 init:
