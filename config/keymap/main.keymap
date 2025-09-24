@@ -22,9 +22,9 @@
 #include "core/layers/numbers.dtsi"
 #include "core/layers/symbols.dtsi"
 #include "core/layers/games.dtsi"
+#include "core/layers/specific.dtsi"
 #include "core/layers/navigation.dtsi"
 #include "core/layers/function.dtsi"
-#include "core/layers/specific.dtsi"
 
 #include "core/combos/main.dtsi"
 #include "core/combos/games.dtsi"

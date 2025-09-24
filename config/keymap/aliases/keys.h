@@ -1,6 +1,11 @@
 #define ___ &trans
 #define XXX &none
 
+#define X_MEH      &sk LC(LS(LALT))
+#define X_SEMI_MEH &sk LC(LSHFT)
+#define X_HYPER    &sk LC(LS(LGUI))
+#define X_ULTRA_HYPER &sk LC(LS(LA(LGUI)))
+
 #ifndef X_CHNG_LNG
 	#define X_CHNG_LNG &kp LS(LALT)
 #endif
@@ -10,6 +15,11 @@
 #define X_SCRNSHT      Y_MEH(F3)
 #define X_REPLAY       Y_MEH(F4)
 #define X_GIF          Y_MEH(F5)
+
+// Shortcuts for Pomotroid (Pomodoro app for Windows)
+#define X_TIMER_TOGGLE Y_MEH(Q)
+#define X_TIMER_RESET  Y_MEH(W)
+#define X_TIMER_SKIP   Y_MEH(E)
 
 #ifdef OS_WINDOWS
 	#define X_LOCK     &kp LG(L)

@@ -6,11 +6,11 @@ ZMK_LEADER_SEQUENCE(layer_meh,    &to MEHS,    L P)
 
 /* 
 * Group: System
-* Key: W
+* Key: D
 * */
-ZMK_LEADER_SEQUENCE(win_sleep,    X_SLEEP,     W W)
-ZMK_LEADER_SEQUENCE(win_shutdown, X_SHUTDOWN,  W S)
-ZMK_LEADER_SEQUENCE(win_restart,  X_RESTART,   W R)
+ZMK_LEADER_SEQUENCE(sys_sleep,    X_SLEEP,     W W)
+ZMK_LEADER_SEQUENCE(sys_shutdown, X_SHUTDOWN,  W E)
+ZMK_LEADER_SEQUENCE(sys_restart,  X_RESTART,   W R)
 ZMK_LEADER_SEQUENCE(kbd_reset,    &sys_reset,  W G)
 ZMK_LEADER_SEQUENCE(kbd_boot,     &bootloader, W F)
 
@@ -19,15 +19,17 @@ ZMK_LEADER_SEQUENCE(kbd_boot,     &bootloader, W F)
 * Key: S
 * */
 #ifdef OS_WINDOWS
-	ZMK_LEADER_SEQUENCE(color_pick,    &kp LG(LS(C)),       S C)
+	ZMK_LEADER_SEQUENCE(color_pick,    &kp LG(LS(C)),       S X)
 	ZMK_LEADER_SEQUENCE(cmd_palette,   &kp LG(LS(O)),       S S)
 	ZMK_LEADER_SEQUENCE(text_extract,  &kp LG(LS(E)),       S E)
 	ZMK_LEADER_SEQUENCE(pin_top,       &kp LG(LS(T)),       S T)
 	ZMK_LEADER_SEQUENCE(fancy_zones,   &kp LG(LS(F)),       S F)
 	ZMK_LEADER_SEQUENCE(ruler,         &kp LG(LS(R)),       S R)
 	ZMK_LEADER_SEQUENCE(paste,         &kp LG(LS(V)),       S V)
-	ZMK_LEADER_SEQUENCE(workspaces,    &kp LG(LS(GRAVE)),   S G)
-	ZMK_LEADER_SEQUENCE(voice_typing,  &kp LG(H),           S D)
+	ZMK_LEADER_SEQUENCE(zoom_it,       &kp LG(LS(Z)),       S Z)
+	ZMK_LEADER_SEQUENCE(workspaces,    &kp LG(LS(GRAVE)),   S W)
+	ZMK_LEADER_SEQUENCE(crop_and_lock, &kp LG(LC(LS(T))),   S C)
+	ZMK_LEADER_SEQUENCE(voice_typing,  &kp LG(H),           S G)
 #endif
 
 ZMK_LEADER_SEQUENCE(gif,     X_GIF,     S H)

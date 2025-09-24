@@ -10,13 +10,14 @@
 #define GAME_EXTRA    8
 #define GAME_NUMPAD   9
 
-#define NAV           10
-#define MOUSE         11
-#define FN            12
-#define MEDIA         13
-#define MEHS          14
-#define LOCK          15
-#define UNLOCK        16
+#define MEHS          10
+#define LOCK          11
+#define UNLOCK        12
+
+#define NAV           13
+#define MOUSE         14
+#define FN            15
+#define MEDIA         16
 
 #define LAYERS_HOLD   NAV SYM FN MEDIA
 #define LAYERS_TOGGLE ALPHA MOUSE NUMPAD NUM_ROW SHIFTED MEHS
