@@ -11,5 +11,6 @@ COMBO(game_extra_1,     LB2 LB3,      &kp F1,                LAYERS_GAME)
 COMBO(game_extra_2,     LB1 LB2,      &kp F2,                LAYERS_GAME)
 
 /* to games combos */
-COMBO(game_default,    LT3 LT1,       &to GAME_DEFAULT,      LAYERS_ALL)
-COMBO_SLOW(game_mouse, RT1 RT3,       &to GAME_MOUSE,        LAYERS_ALL)
+COMBO(game_default,     LT3 LT1,       &to GAME_DEFAULT,      LAYERS_ALL)
+COMBO(game_dota2,       LT3 LT2 LT1,   &to GAME_DOTA2,        LAYERS_ALL)
+COMBO_SLOW(game_mouse,  RT1 RT3,       &to GAME_MOUSE,        LAYERS_ALL)

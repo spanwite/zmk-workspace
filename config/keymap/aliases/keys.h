@@ -32,6 +32,19 @@
 	#define X_SNIP     &kp PRINTSCREEN
 #endif
 
+// Shortcuts for Microsoft Powertoys
+#define X_COLOR_PICK    &kp LG(LS(C))
+#define X_CMD_PALETTE   &kp LG(LS(O))
+#define X_TEXT_EXTRACT  &kp LG(LS(E))
+#define X_PIN_TOP       &kp LG(LS(T))
+#define X_FANCY_ZONES   &kp LG(LS(F))
+#define X_RULER         &kp LG(LS(R))
+#define X_PASTE         &kp LG(LS(V))
+#define X_ZOOM_IT       &kp LG(LS(Z))
+#define X_WORKSPACES    &kp LG(LS(GRAVE))
+#define X_CROP_AND_LOCK &kp LG(LC(LS(T)))
+#define X_VOICE_TYPING  &kp LG(H)
+
 /*
 * Symbols: Windows Alt Codes
 * OS: Windows

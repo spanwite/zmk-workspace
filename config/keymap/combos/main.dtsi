@@ -6,7 +6,7 @@ COMBO(equal,            LT2 LT1,      &kp EQL,               LAYERS_ALL)
 COMBO(escape,           LM3 LM1,      &kp ESC,               LAYERS_ALL)
 COMBO(enter,            LM2 LM1,      &kp ENTER,             LAYERS_ALL)
 COMBO(bspc,             LM3 LM2,      &kp BSPC,              LAYERS_ALL)
-COMBO(auto_nav,         LM4 LM3,      &auto_nav NAV,         LAYERS_TOGGLE)
+COMBO(leader,           LM4 LM3,      &leader,               LAYERS_TOGGLE)
 COMBO(save,             LM1 LM0,      &kp LC(S),             LAYERS_TOGGLE)
 
 COMBO(copy,             LB3 LB2,      &kp LC(C),             LAYERS_TOGGLE)

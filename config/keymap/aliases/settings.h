@@ -11,8 +11,8 @@
 #define RELEASE_AFTER        1000
 
 /* COMBOS */
-#define COMBO_TERM_FAST 30
-#define COMBO_TERM      40
+#define COMBO_TERM_FAST 25
+#define COMBO_TERM      35
 #define COMBO_TERM_SLOW 60
 
 #define COMBO_IDLE_FAST 50

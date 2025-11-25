@@ -8,7 +8,7 @@ ZMK_AUTO_LAYER(auto_mouse,
 
 ZMK_AUTO_LAYER(auto_nav,
     continue-list = <
-      LEFT DOWN UP RIGHT PG_DN PG_UP HOME END
+		LEFT DOWN UP RIGHT PG_DN PG_UP HOME END
     >;
     ignore-modifiers;
 )
@@ -27,13 +27,24 @@ ZMK_AUTO_LAYER(auto_numrow,
     ignore-modifiers;
 )
 
-ZMK_AUTO_LAYER(auto_caps,
+ZMK_AUTO_LAYER(auto_caps_word,
     continue-list = <
         UNDERSCORE MINUS
         BACKSPACE DELETE
         SQT GRAVE LBKT RBKT DOT COMMA 
         LEFT DOWN UP RIGHT 
-        LSHFT RSHFT
     >;
     ignore-alphas;
+	ignore-modifiers;
+)
+
+ZMK_AUTO_LAYER(auto_caps_lock,
+    continue-list = <
+        UNDERSCORE MINUS
+        BACKSPACE DELETE SPACE
+        SQT GRAVE LBKT RBKT DOT COMMA 
+        LEFT DOWN UP RIGHT 
+    >;
+    ignore-alphas;
+	ignore-modifiers;
 )

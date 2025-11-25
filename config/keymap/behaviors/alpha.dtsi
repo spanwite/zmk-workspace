@@ -6,8 +6,9 @@ LAYERTAP(lt_ldr, &leader)
 LAYERTAP(lt_spc_dot, &mm_spc_dot)
 
 /* SMART */
-MORPH_SINGLE(mm_caps, LSFT, &auto_caps SHIFTED, &to SHIFTED)
+MORPH_SINGLE(mm_caps, LSFT, &auto_caps_word SHIFTED, &auto_caps_lock SHIFTED)
 LAYERTAP(lt_numrow, &auto_numrow)
+LAYERTAP(lt_nav, &auto_nav)
 LAYERTAP(lt_num_word, &num_word)
 LAYERTAP(lt_caps, &mm_caps)
 

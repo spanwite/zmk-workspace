@@ -1,0 +1,40 @@
+/* 
+* Group: Layers
+* Key: L
+* */
+ZMK_LEADER_SEQUENCE(layer_meh,    &to MEHS,    L P)
+
+/* 
+* Group: System
+* Key: D
+* */
+ZMK_LEADER_SEQUENCE(sys_sleep,    X_SLEEP,     W W)
+ZMK_LEADER_SEQUENCE(sys_shutdown, X_SHUTDOWN,  W E)
+ZMK_LEADER_SEQUENCE(sys_restart,  X_RESTART,   W R)
+ZMK_LEADER_SEQUENCE(kbd_reset,    &sys_reset,  W G)
+ZMK_LEADER_SEQUENCE(kbd_boot,     &bootloader, W F)
+
+/* 
+* Group: Shortcuts
+* Key: S
+* */
+#ifdef OS_WINDOWS
+	ZMK_LEADER_SEQUENCE(color_pick,    X_COLOR_PICK,      S X)
+	ZMK_LEADER_SEQUENCE(cmd_palette,   X_CMD_PALETTE,     S S)
+	ZMK_LEADER_SEQUENCE(text_extract,  X_TEXT_EXTRACT,    S E)
+	ZMK_LEADER_SEQUENCE(pin_top,       X_PIN_TOP,         S T)
+	ZMK_LEADER_SEQUENCE(fancy_zones,   X_FANCY_ZONES,     S F)
+	ZMK_LEADER_SEQUENCE(ruler,         X_RULER,           S R)
+	ZMK_LEADER_SEQUENCE(paste,         X_PASTE,           S V)
+	ZMK_LEADER_SEQUENCE(zoom_it,       X_ZOOM_IT,         S Z)
+	ZMK_LEADER_SEQUENCE(workspaces,    X_WORKSPACES,      S W)
+	ZMK_LEADER_SEQUENCE(crop_and_lock, X_CROP_AND_LOCK,   S C)
+	ZMK_LEADER_SEQUENCE(voice_typing,  X_VOICE_TYPING,    S G)
+#endif
+
+ZMK_LEADER_SEQUENCE(gif,     X_GIF,     S H)
+ZMK_LEADER_SEQUENCE(overlay, X_OVERLAY, S J)
+ZMK_LEADER_SEQUENCE(scrnsht, X_SCRNSHT, S K)
+ZMK_LEADER_SEQUENCE(record,  X_RECORD,  S L)
+ZMK_LEADER_SEQUENCE(replay,  X_REPLAY,  S SEMI)
+
