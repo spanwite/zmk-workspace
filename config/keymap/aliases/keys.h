@@ -1,20 +1,28 @@
 #define ___ &trans
 #define XXX &none
 
-#define X_MEH      &sk LC(LS(LALT))
-#define X_SEMI_MEH &sk LC(LSHFT)
-#define X_HYPER    &sk LC(LS(LGUI))
+// Meh keys
+#define X_MEH         &sk LC(LS(LALT))
+#define X_SEMI_MEH    &sk LC(LSHFT)
+#define X_HYPER       &sk LC(LS(LGUI))
 #define X_ULTRA_HYPER &sk LC(LS(LA(LGUI)))
 
 #ifndef X_CHNG_LNG
 	#define X_CHNG_LNG &kp LS(LALT)
 #endif
 
-#define X_OVERLAY      Y_MEH(F1)
-#define X_RECORD       Y_MEH(F2)
-#define X_SCRNSHT      Y_MEH(F3)
-#define X_REPLAY       Y_MEH(F4)
-#define X_GIF          Y_MEH(F5)
+// Home row modificators
+#define K_HM_1 LGUI
+#define K_HM_2 LCTRL
+#define K_HM_3 LALT
+#define K_HM_4 LSHFT
+
+// AMD Radeon Software shortcuts
+#define X_OVERLAY Y_MEH(F1)
+#define X_RECORD  Y_MEH(F2)
+#define X_SCRNSHT Y_MEH(F3)
+#define X_REPLAY  Y_MEH(F4)
+#define X_GIF     Y_MEH(F5)
 
 // Shortcuts for Pomotroid (Pomodoro app for Windows)
 #define X_TIMER_TOGGLE Y_MEH(Q)
