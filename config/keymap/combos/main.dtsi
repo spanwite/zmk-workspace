@@ -34,7 +34,7 @@ COMBO(tab,              RM1 RM2,      &kp TAB,               LAYERS_ALL)
 COMBO(dqt,              RM1 RM3,      X_DQT,                 LAYERS_TOGGLE)
 COMBO(minus_dash,       RM2 RM3,      &ht_minus_dash 0 0,    LAYERS_TOGGLE)
 
-COMBO(auto_mouse,       LB2 LB3,      &auto_mouse MOUSE,     LAYERS_TOGGLE)
+COMBO(auto_mouse,       RB2 RB3,      &auto_mouse MOUSE,     LAYERS_TOGGLE)
 
 /* CROSS PIECES */
 COMBO_FAST(save_cross,  LM2 RM2,      &kp LC(S),             LAYERS_TOGGLE)

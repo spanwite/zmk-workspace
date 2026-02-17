@@ -12,10 +12,10 @@
 #endif
 
 // Home row modificators
-#define K_HM_1 LGUI
+#define K_HM_1 LSHFT
 #define K_HM_2 LCTRL
-#define K_HM_3 LALT
-#define K_HM_4 LSHFT
+#define K_HM_3 LGUI
+#define K_HM_4 LALT
 
 // AMD Radeon Software shortcuts
 #define X_OVERLAY Y_MEH(F1)
@@ -33,11 +33,11 @@
 	#define X_LOCK     &kp LG(L)
 	#define X_SNIP     &kp LG(LS(S))
 #else
+	#define X_LOCK     &kp K_LOCK
+	#define X_SNIP     &kp PRINTSCREEN
 	#define X_SLEEP    &kp K_SLEEP
 	#define X_SHUTDOWN &kp K_PWR
 	#define X_RESTART  &trans
-	#define X_LOCK     &kp K_LOCK
-	#define X_SNIP     &kp PRINTSCREEN
 #endif
 
 // Shortcuts for Microsoft Powertoys
