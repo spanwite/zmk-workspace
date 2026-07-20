@@ -33,11 +33,11 @@
 	#define X_LOCK     &kp LG(L)
 	#define X_SNIP     &kp LG(LS(S))
 #else
-	#define X_LOCK     &kp K_LOCK
 	#define X_SNIP     &kp PRINTSCREEN
+	#define X_LOCK     &kp K_LOCK
 	#define X_SLEEP    &kp K_SLEEP
-	#define X_SHUTDOWN &kp K_PWR
-	#define X_RESTART  &trans
+	#define X_SHUTDOWN &kp LG(LA(N6))
+	#define X_RESTART  &kp LG(LA(N4))
 #endif
 
 // Shortcuts for Microsoft Powertoys

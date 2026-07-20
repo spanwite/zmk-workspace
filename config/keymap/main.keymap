@@ -5,8 +5,6 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <zmk-helpers/helper.h>
 
-#include "customize.h"
-
 #include "aliases/settings.h"
 #include "aliases/helpers.h"
 #include "aliases/layers.h"

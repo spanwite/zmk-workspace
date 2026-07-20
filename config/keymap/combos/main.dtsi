@@ -1,11 +1,11 @@
 /* LEFT PIECE */
 /* horizontal combos */
-COMBO(delete,           LT3 LT2,      &kp DEL,               LAYERS_ALL)
+COMBO(delete,           LT3 LT2,      &kp DEL,               LAYERS_ALL GAME_ALPHA)
 COMBO(equal,            LT2 LT1,      &kp EQL,               LAYERS_ALL)
 
-COMBO(escape,           LM3 LM1,      &kp ESC,               LAYERS_ALL)
-COMBO(enter,            LM2 LM1,      &kp ENTER,             LAYERS_ALL)
-COMBO(bspc,             LM3 LM2,      &kp BSPC,              LAYERS_ALL)
+COMBO(escape,           LM3 LM1,      &kp ESC,               LAYERS_ALL GAME_ALPHA)
+COMBO(enter,            LM2 LM1,      &kp ENTER,             LAYERS_ALL GAME_ALPHA)
+COMBO(bspc,             LM3 LM2,      &kp BSPC,              LAYERS_ALL GAME_ALPHA)
 COMBO(leader,           LM4 LM3,      &leader,               LAYERS_TOGGLE)
 COMBO(save,             LM1 LM0,      &kp LC(S),             LAYERS_TOGGLE)
 

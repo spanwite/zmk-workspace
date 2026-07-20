@@ -1,16 +1,19 @@
 /* LEFT PIECE */
 /* horizontal combos */
-COMBO(dota2_extra_5,    LT1 LT2,      &kp F5,                GAME_DOTA2)
-COMBO(dota2_extra_4,    LT2 LT3,      &kp F4,                GAME_DOTA2)
+COMBO(game_del,         LT2 LT3,      &kp DEL,               LAYERS_GAME)
+COMBO(game_t,           LT0 LT1,      &kp T,                 LAYERS_GAME)
+COMBO(game_tab,         LT1 LT2,      &kp TAB,               GAME_ALPHA)
 
-COMBO(game_g,           LM0 LM1,      &kp G,                 LAYERS_GAME)
-COMBO(game_extra_3,     LM3 LM4,      &kp F3,                LAYERS_GAME)
+COMBO(game_bspc,        LM3 LM4,      &kp BSPC,              LAYERS_GAME)
+COMBO(game_enter,       LM0 LM1,      &kp ENTER,             LAYERS_GAME)
 
 COMBO(game_esc,         LB1 LB3,      &kp ESC,               LAYERS_GAME)
-COMBO(game_extra_1,     LB2 LB3,      &kp F1,                LAYERS_GAME)
-COMBO(game_extra_2,     LB1 LB2,      &kp F2,                LAYERS_GAME)
+COMBO(game_b,           LB2 LB3,      &kp B,                 LAYERS_GAME)
+COMBO(game_g,           LB1 LB2,      &kp G,                 LAYERS_GAME)
+COMBO(game_t,           LB0 LB1,      &kp T,                 LAYERS_GAME)
+COMBO(game_space,       LB1 LB3,      &kp SPC,               GAME_ALPHA)
 
 /* to games combos */
-COMBO(game_default,     LT3 LT1,       &to GAME_DEFAULT,      LAYERS_ALL)
-COMBO(game_dota2,       LT3 LT2 LT1,   &to GAME_DOTA2,        LAYERS_ALL)
-COMBO_SLOW(game_mouse,  RT1 RT3,       &to GAME_MOUSE,        LAYERS_ALL)
+COMBO(game_default,     LT3 LT1,       &to GAME_WASD,        LAYERS_ALL)
+COMBO(game_dota2,       LT3 LT2 LT1,   &to GAME_ALPHA,       LAYERS_ALL)
+COMBO_SLOW(game_mouse,  RT1 RT3,       &to GAME_MOUSE,       LAYERS_ALL)
